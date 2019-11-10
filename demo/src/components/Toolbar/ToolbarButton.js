@@ -1,24 +1,27 @@
 import React from 'react';
-import { Tooltip } from 'antd';
-import { Command } from 'gg-editor';
-import upperFirst from 'lodash/upperFirst';
-import IconFont from '../../common/IconFont';
+import { Tooltip, Icon } from 'antd';
 import styles from './index.less';
 
 const ToolbarButton = (props) => {
-  const { command, icon, text } = props;
-
-  return (
-    <Command name={command}>
-      <Tooltip
-        title={text || upperFirst(command)}
-        placement="bottom"
-        overlayClassName={styles.tooltip}
-      >
-        <IconFont type={`icon-${icon || command}`} />
-      </Tooltip>
-    </Command>
-  );
+    const { onClick, icon, text } = props;
+    if (!props.disabled)
+        return (
+            <div className="toolbarButton" onClick={onClick}>
+                <Tooltip
+                    title={text}
+                    placement="bottom"
+                    overlayClassName={styles.tooltip}
+                >
+                    <Icon type={icon} />
+                </Tooltip>
+            </div>
+        )
+    else
+        return (
+            <div className="toolbarButton">
+                <Icon type="loading" />
+            </div>
+        )
 };
 
 export default ToolbarButton;
