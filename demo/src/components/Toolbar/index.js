@@ -3,6 +3,7 @@ import { Divider } from 'antd';
 import { Toolbar } from 'gg-editor';
 import ToolbarCommand from './ToolbarCommand';
 import StateEventMatrix from './stateEventMatrix';
+import CodeGeneration from './codeGeneration';
 import SaveGraphButton from './saveGraphButton';
 import ImportGraphButton from './importGraphButton';
 import ClearButton from './clearButton';
@@ -41,6 +42,7 @@ class FlowToolbar extends React.Component {
         <ToolbarCommand command="unGroup" icon="ungroup" text="Ungroup" />
         <Divider type="vertical" />
         <StateEventMatrix />
+        <CodeGeneration />
     </Toolbar>
 }
 
